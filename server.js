@@ -18,7 +18,7 @@ app.use(express.json());
 
 // CORS Configuration
 app.use(cors({
-  origin: 'https://ADSACHIN.github.io/finance_manager/', // Replace with your frontend URL
+  origin: 'http://localhost:3000', // Replace with your frontend URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 }));
