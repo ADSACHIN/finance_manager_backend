@@ -15,7 +15,13 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+
+// CORS Configuration
+app.use(cors({
+  origin: 'https://adsachin.github.io/finance_manager/', // Replace with your frontend URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true
+}));
 
 // Routes
 app.use('/api/auth', authRoutes);
@@ -24,8 +30,6 @@ app.use('/api/budgets', budgetRoutes);
 app.use('/api/goals', goalRoutes);
 app.use('/api/predict', predictionRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/predict', predictionRoutes);
-
 
 // Database connection
 mongoose.connect(process.env.MONGO_URI, {
@@ -36,12 +40,6 @@ mongoose.connect(process.env.MONGO_URI, {
 }).catch((err) => {
   console.error(err);
 });
-// {
-  
-//   "email": "john@example.com",
-//   "password": "securePassword123"
-// }
-
 
 // Start server
 const PORT = process.env.PORT || 5000;
