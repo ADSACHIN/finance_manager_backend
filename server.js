@@ -18,7 +18,7 @@ app.use(express.json());
 
 // CORS Configuration
 app.use(cors({
-  origin: 'https://adsachin.github.io', // Replace with your frontend URL
+  origin: ['https://adsachin.github.io', 'http://localhost:3000'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
